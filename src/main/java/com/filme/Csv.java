@@ -4,14 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.filme.entity.Filme;
+import com.filme.entity.Producer;
 import com.filme.repository.FilmeRepository;
 
 @Component
@@ -50,10 +48,12 @@ public class Csv {
 				
 				String[] producersVector = filmeVector[3].split(",");				
 				for (String p : producersVector) {
+					Producer producer = new Producer();
+					producer.setName(p);
 					filme.addProducers(p);
 				}
 								
-				filme.setWinner(winner == "yes");
+				filme.setWinner(winner.equals("yes"));
 				filmeRepository.save(filme);
 
 			}

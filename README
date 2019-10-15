@@ -1,0 +1,4 @@
+Utilizei Springboot, Java 8, Hibernate e H2 (como banco na memória)
+
+Para rodar o projeto, basta executar o MainApplication com Run Application.
+Está sendo utilizado a porta default 8080.
